@@ -7,7 +7,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.example.android.mypresidents.adapter.CardViewPresidentAdapter;
 import com.example.android.mypresidents.adapter.GridPresidentAdapter;
 import com.example.android.mypresidents.adapter.ListPresidentAdapter;
 import com.example.android.mypresidents.model.President;
@@ -55,9 +57,19 @@ public class MainActivity extends AppCompatActivity {
                 showRecyclerGrid();
                 break;
             case R.id.action_cardview:
+                showRecyclerCardView();
                 break;
         }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setActionBarTitle(String title){
+        getSupportActionBar().setTitle(title);
+    }
+
+    private void showSelectedPresident(President president){
+        Toast.makeText(this, "Kamu memilih "+president.getName(), Toast.LENGTH_SHORT).show();
     }
 
     private void showRecyclerGrid(){
@@ -65,6 +77,13 @@ public class MainActivity extends AppCompatActivity {
         GridPresidentAdapter gridPresidentAdapter = new GridPresidentAdapter(this);
         gridPresidentAdapter.setListPresident(list);
         rvCategory.setAdapter(gridPresidentAdapter);
+    }
+
+    private void showRecyclerCardView(){
+        rvCategory.setLayoutManager(new LinearLayoutManager(this));
+        CardViewPresidentAdapter cardViewPresidentAdapter = new CardViewPresidentAdapter(this);
+        cardViewPresidentAdapter.setListPresident(list);
+        rvCategory.setAdapter(cardViewPresidentAdapter);
     }
 
 }
