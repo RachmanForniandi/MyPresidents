@@ -24,6 +24,7 @@ public class ListPresidentAdapter extends RecyclerView.Adapter<ListPresidentAdap
     public ArrayList<President> getListPresident(){
         return listPresident;
     }
+
     public void setListPresident(ArrayList<President> listPresident){
         this.listPresident = listPresident;
     }

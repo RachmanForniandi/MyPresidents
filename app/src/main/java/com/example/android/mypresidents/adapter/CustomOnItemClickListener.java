@@ -6,7 +6,7 @@ import android.view.View;
  * Created by Lenovo on 10/1/2017.
  */
 
-class CustomOnItemClickListener implements View.OnClickListener {
+public class CustomOnItemClickListener implements View.OnClickListener {
     private int position;
     private OnItemClickCallback onItemClickCallback;
     public CustomOnItemClickListener(int position, OnItemClickCallback onItemClickCallBack) {
